@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-one
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo-one
+  template:
+    metadata:
+      labels:
+        app: echo-one
+    spec:
+      containers:
+        - name: echo
+          image: hashicorp/http-echo:0.2.3
+          args:
+            - -listen=:8080
+            - -text="hello world"
+          ports:
+            - name: web
+              containerPort: 8080
+              protocol: TCP
