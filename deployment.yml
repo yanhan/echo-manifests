@@ -18,7 +18,7 @@ spec:
           image: hashicorp/http-echo:0.2.3
           args:
             - -listen=:8080
-            - -text="hello world"
+            - -text="updated this"
           ports:
             - name: web
               containerPort: 8080
